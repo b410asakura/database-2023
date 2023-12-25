@@ -2,7 +2,6 @@ package com20.database2023.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Builder
@@ -12,7 +11,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-@Table(name = "publisher")
+@Table(name = "publishers")
 public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
