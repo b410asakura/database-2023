@@ -2,12 +2,11 @@ package com20.database2023.service.impl;
 
 import com20.database2023.dao.GenreDao;
 import com20.database2023.dto.request.GenreRequest;
-import com20.database2023.dto.response.AuthorResponse;
+import com20.database2023.dto.response.GenreResponse;
 import com20.database2023.entity.Genre;
 import com20.database2023.service.GenreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -15,8 +14,6 @@ import java.util.List;
 public class GenreServiceImpl implements GenreService {
 
     private final GenreDao genreDao;
-
-
 
     @Override
     public void insert(GenreRequest genreRequest) {
@@ -26,7 +23,7 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
-    public List<AuthorResponse> getAll() {
+    public List<GenreResponse> getAll() {
         return genreDao.getAll();
     }
 
