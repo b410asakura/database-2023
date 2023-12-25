@@ -1,5 +1,6 @@
 package com20.database2023.dao;
 
+import com20.database2023.dto.response.AuthorBookResponse;
 import com20.database2023.dto.response.AuthorResponse;
 import com20.database2023.entity.Author;
 
@@ -15,4 +16,6 @@ public interface AuthorDao {
     void update(Long id, Author author);
 
     void delete(Long id);
+
+    AuthorBookResponse getAuthorBooks(Long id);
 }

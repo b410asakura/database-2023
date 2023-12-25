@@ -3,6 +3,7 @@ package com20.database2023.service.impl;
 import com20.database2023.dao.AuthorDao;
 import com20.database2023.dao.AuthorRepository;
 import com20.database2023.dto.request.AuthorRequest;
+import com20.database2023.dto.response.AuthorBookResponse;
 import com20.database2023.dto.response.AuthorResponse;
 import com20.database2023.entity.Author;
 import com20.database2023.service.AuthorService;
@@ -40,5 +41,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void delete(Long id) {
         authorDao.delete(id);
+    }
+
+    @Override
+    public AuthorBookResponse getAuthorBooks(Long id) {
+        return authorDao.getAuthorBooks(id);
     }
 }

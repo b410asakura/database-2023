@@ -1,6 +1,7 @@
 package com20.database2023.controller;
 
 import com20.database2023.dto.request.AuthorRequest;
+import com20.database2023.dto.response.AuthorBookResponse;
 import com20.database2023.dto.response.AuthorResponse;
 import com20.database2023.dto.response.SimpleResponse;
 import com20.database2023.service.AuthorService;
@@ -37,5 +38,10 @@ public class AuthorController {
     @DeleteMapping
     void delete(@RequestParam Long id) {
         authorService.delete(id);
+    }
+
+    @GetMapping
+    AuthorBookResponse getAllAuthorBooks(@RequestParam Long id){
+       return authorService.getAuthorBooks(id);
     }
 }
