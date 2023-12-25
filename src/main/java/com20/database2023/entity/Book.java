@@ -2,7 +2,6 @@ package com20.database2023.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.List;
 
 @Builder
