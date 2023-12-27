@@ -1,6 +1,5 @@
 package com20.database2023.dao;
 
-import com20.database2023.dto.response.AuthorResponse;
 import com20.database2023.dto.response.GenreResponse;
 import com20.database2023.entity.Genre;
 
@@ -16,4 +15,6 @@ public interface GenreDao {
     void update(Long id, Genre genre);
 
     void delete(Long id);
+
+    Genre findById(Long id);
 }

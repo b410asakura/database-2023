@@ -21,5 +21,4 @@ public class Author {
     private String email;
     @OneToMany(mappedBy = "author")
     private List<Book> books;
-
 }

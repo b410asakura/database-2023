@@ -20,7 +20,7 @@ public class AuthorController {
         authorService.insert(authorRequest);
         return SimpleResponse.builder()
                 .httpStatus(HttpStatus.OK)
-                .message("Author saved")
+                .message("author was saved")
                 .build();
     }
 
@@ -30,12 +30,20 @@ public class AuthorController {
     }
 
     @PutMapping
-    void update(@RequestParam Long id, @RequestBody AuthorRequest authorRequest) {
+    SimpleResponse update(@RequestParam Long id, @RequestBody AuthorRequest authorRequest) {
         authorService.update(id, authorRequest);
+        return SimpleResponse.builder()
+                .httpStatus(HttpStatus.OK)
+                .message("author was updated")
+                .build();
     }
 
     @DeleteMapping
-    void delete(@RequestParam Long id) {
+    SimpleResponse delete(@RequestParam Long id) {
         authorService.delete(id);
+        return SimpleResponse.builder()
+                .httpStatus(HttpStatus.OK)
+                .message("author was deleted")
+                .build();
     }
 }

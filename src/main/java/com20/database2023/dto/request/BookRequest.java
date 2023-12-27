@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookRequest {
-    private Long id;
     private String title;
     private int publicationYear;
+    private Long authorId;
 }

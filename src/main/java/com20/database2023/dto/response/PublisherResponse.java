@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class PublisherResponse {
     private Long id;
     private String name;
+//    private List<Book> books;
 }

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Types;
 import java.util.List;
 
 @Repository
@@ -39,9 +40,26 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
+    public Author findById(Long id){
+        String sql = """
+                SELECT * FROM authors
+                where authors.id = ?
+                """;
+        Object[] args = {id};
+        int[] argTypes = {Types.INTEGER};
+        return jdbcTemplate.queryForObject(sql, args, argTypes,  (rs, rowNum) -> {
+            Author author = new Author();
+            author.setId(rs.getLong("id"));
+            author.setName(rs.getString("name"));
+            author.setEmail(rs.getString("email"));
+            return author;
+        });
+    }
+
+    @Override
     public void update(Long id, Author author) {
-        String sql = "UPDATE authors SET email = ? WHERE id = ?";
-        jdbcTemplate.update(sql, author.getEmail(), id);
+        String sql = "UPDATE authors SET  name = ?, email = ? WHERE id = ?";
+        jdbcTemplate.update(sql,author.getName(), author.getEmail(), id);
     }
 
     @Override

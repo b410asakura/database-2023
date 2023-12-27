@@ -6,6 +6,8 @@ import com20.database2023.entity.Genre;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.sql.Types;
 import java.util.List;
 
 @Repository
@@ -49,5 +51,21 @@ public class GenreDaoImpl implements GenreDao {
                 DELETE FROM genres WHERE id = ?
                 """;
         jdbcTemplate.update(sql, id);
+    }
+
+    @Override
+    public Genre findById(Long id) {
+        String sql = """
+                SELECT * FROM genres
+                where genres.id = ?
+                """;
+        Object[] args = {id};
+        int[] argTypes = {Types.INTEGER};
+        return jdbcTemplate.queryForObject(sql, args, argTypes,  (rs, rowNum) -> {
+            Genre genre = new Genre();
+            genre.setId(rs.getLong("id"));
+            genre.setName(rs.getString("name"));
+            return genre;
+        });
     }
 }

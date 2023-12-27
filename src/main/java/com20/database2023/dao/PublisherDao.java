@@ -15,5 +15,7 @@ public interface PublisherDao {
 
     void delete(Long id);
 
-    PublisherResponse findPublisherById(Long publishersId);
+//    PublisherResponse findPublisherById(Long publishersId);
+
+    public Publisher findById(Long id);
 }

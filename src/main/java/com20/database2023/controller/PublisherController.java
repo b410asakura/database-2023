@@ -3,11 +3,11 @@ package com20.database2023.controller;
 import com20.database2023.dto.request.PublisherRequest;
 import com20.database2023.dto.response.PublisherResponse;
 import com20.database2023.dto.response.SimpleResponse;
-import com20.database2023.entity.Book;
 import com20.database2023.service.PublisherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -50,12 +50,12 @@ public class PublisherController {
                 .build();
     }
 
-    @PostMapping
-    SimpleResponse setBooks(@RequestBody List<Book>books){
-        publisherService.setBooks(books, );
-        return SimpleResponse.builder()
-                .httpStatus(HttpStatus.OK)
-                .message("Books are successfully published !!!")
-                .build();
-    }
+//    @PostMapping
+//    SimpleResponse setBooks(@RequestBody List<Book>books, @RequestParam Long id){
+//        publisherService.setBooks(books, id);
+//        return SimpleResponse.builder()
+//                .httpStatus(HttpStatus.OK)
+//                .message("Books are successfully published !!!")
+//                .build();
+//    }
 }
